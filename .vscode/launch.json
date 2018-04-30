@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "protocol": "legacy",
+            "address": "localhost",
+            "port": 5859,
+            "timeout": 20000,
+            "name": "WebdriverIO",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/wdio",
+            "windows": {
+                "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/wdio.cmd"
+            },
+            "cwd": "${workspaceRoot}",
+            "console": "integratedTerminal",
+            // This args config runs only the file that's open and displayed
+            // (e.g., a file in test/spec/):
+            "args":[
+                "--spec", "${relativeFile}"
+                // To run a specific file, you can use:
+                //"--spec", "test/specs/foo.spec.js"
+            ]
+        }
+    ]
+}

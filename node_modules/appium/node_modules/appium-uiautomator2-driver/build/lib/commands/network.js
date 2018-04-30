@@ -1,0 +1,51 @@
+'use strict';
+
+var _regeneratorRuntime = require('babel-runtime/regenerator')['default'];
+
+var _Object$assign = require('babel-runtime/core-js/object/assign')['default'];
+
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _logger = require('../logger');
+
+var _logger2 = _interopRequireDefault(_logger);
+
+var extensions = {},
+    commands = {};
+
+commands.setWifiState = function callee$0$0(wifi) {
+  var type;
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        type = wifi << 1;
+        context$1$0.prev = 1;
+        context$1$0.next = 4;
+        return _regeneratorRuntime.awrap(this.uiautomator2.jwproxy.command('/network_connection', 'POST', { type: type }));
+
+      case 4:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 7:
+        context$1$0.prev = 7;
+        context$1$0.t0 = context$1$0['catch'](1);
+
+        _logger2['default'].error('Unable to set Network connection to WIFI, retrying with adb command. ERROR:: ' + context$1$0.t0.message);
+        context$1$0.next = 12;
+        return _regeneratorRuntime.awrap(this.adb.setWifiState(wifi, this.isEmulator()));
+
+      case 12:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this, [[1, 7]]);
+};
+
+_Object$assign(extensions, commands);
+exports.commands = commands;
+exports['default'] = extensions;
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9jb21tYW5kcy9uZXR3b3JrLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztzQkFBZ0IsV0FBVzs7OztBQUUzQixJQUFJLFVBQVUsR0FBRyxFQUFFO0lBQUUsUUFBUSxHQUFHLEVBQUUsQ0FBQzs7QUFFbkMsUUFBUSxDQUFDLFlBQVksR0FBRyxvQkFBZ0IsSUFBSTtNQUN0QyxJQUFJOzs7O0FBQUosWUFBSSxHQUFHLElBQUksSUFBSSxDQUFDOzs7eUNBRUwsSUFBSSxDQUFDLFlBQVksQ0FBQyxPQUFPLENBQUMsT0FBTyxDQUFDLHFCQUFxQixFQUFFLE1BQU0sRUFBRSxFQUFDLElBQUksRUFBSixJQUFJLEVBQUMsQ0FBQzs7Ozs7Ozs7O0FBRXJGLDRCQUFJLEtBQUssbUZBQWlGLGVBQU0sT0FBTyxDQUFHLENBQUM7O3lDQUNyRyxJQUFJLENBQUMsR0FBRyxDQUFDLFlBQVksQ0FBQyxJQUFJLEVBQUUsSUFBSSxDQUFDLFVBQVUsRUFBRSxDQUFDOzs7Ozs7O0NBRXZELENBQUM7O0FBRUYsZUFBYyxVQUFVLEVBQUUsUUFBUSxDQUFDLENBQUM7UUFDM0IsUUFBUSxHQUFSLFFBQVE7cUJBQ0YsVUFBVSIsImZpbGUiOiJsaWIvY29tbWFuZHMvbmV0d29yay5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBsb2cgZnJvbSAnLi4vbG9nZ2VyJztcblxubGV0IGV4dGVuc2lvbnMgPSB7fSwgY29tbWFuZHMgPSB7fTtcblxuY29tbWFuZHMuc2V0V2lmaVN0YXRlID0gYXN5bmMgZnVuY3Rpb24gKHdpZmkpIHtcbiAgbGV0IHR5cGUgPSB3aWZpIDw8IDE7XG4gIHRyeSB7XG4gICAgcmV0dXJuIGF3YWl0IHRoaXMudWlhdXRvbWF0b3IyLmp3cHJveHkuY29tbWFuZCgnL25ldHdvcmtfY29ubmVjdGlvbicsICdQT1NUJywge3R5cGV9KTtcbiAgfSBjYXRjaCAoZXJyb3IpIHtcbiAgICBsb2cuZXJyb3IoYFVuYWJsZSB0byBzZXQgTmV0d29yayBjb25uZWN0aW9uIHRvIFdJRkksIHJldHJ5aW5nIHdpdGggYWRiIGNvbW1hbmQuIEVSUk9SOjogJHtlcnJvci5tZXNzYWdlfWApO1xuICAgIGF3YWl0IHRoaXMuYWRiLnNldFdpZmlTdGF0ZSh3aWZpLCB0aGlzLmlzRW11bGF0b3IoKSk7XG4gIH1cbn07XG5cbk9iamVjdC5hc3NpZ24oZXh0ZW5zaW9ucywgY29tbWFuZHMpO1xuZXhwb3J0IHsgY29tbWFuZHMgfTtcbmV4cG9ydCBkZWZhdWx0IGV4dGVuc2lvbnM7XG4iXSwic291cmNlUm9vdCI6Ii4uLy4uLy4uIn0=

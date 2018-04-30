@@ -1,0 +1,29 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1524887880142' stop='1524887880152'>
+    <name>Performing a signup Perform a signup</name>
+    <title>Performing a signup Perform a signup</title>
+    <test-cases>
+        <test-case start='1524887880145' status='broken' stop='1524887880149'>
+            <name>I launch the php travels signup page</name>
+            <title>I launch the php travels signup page</title>
+            <labels>
+                <label name='feature' value='Performing a signup'/>
+                <label name='story' value='Perform a signup'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"browserName":"chrome","maxInstances":"5"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/features/test.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Step "I launch the php travels signup page" is not defined. You can ignore this error by setting
+                                              cucumberOpts.ignoreUndefinedDefinitions as true.</message>
+                <stack-trace>/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/features/test.feature:4</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

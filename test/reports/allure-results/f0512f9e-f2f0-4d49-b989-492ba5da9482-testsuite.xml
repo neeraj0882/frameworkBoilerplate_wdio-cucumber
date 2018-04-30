@@ -1,0 +1,93 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1524904192215' stop='1524904290033'>
+    <name>Performing a signup Perform a signup</name>
+    <title>Performing a signup Perform a signup</title>
+    <test-cases>
+        <test-case start='1524904192217' status='passed' stop='1524904199994'>
+            <name>I launch the php travels signup page</name>
+            <title>I launch the php travels signup page</title>
+            <labels>
+                <label name='feature' value='Performing a signup'/>
+                <label name='story' value='Perform a signup'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"browserName":"chrome","maxInstances":"1"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/features/test.feature"]'/>
+            </parameters>
+            <steps>
+                <step start='1524904192223' status='passed' stop='1524904198985'>
+                    <name>POST /wd/hub/session/07641d2d03ebb4da2aecdb368263ea5e/url</name>
+                    <title>POST /wd/hub/session/07641d2d03ebb4da2aecdb368263ea5e/url</title>
+                    <attachments>
+                        <attachment title='Request' source='46ef9c44-6b4e-46e2-84d3-65f434003cb3-attachment.json' type='application/json' size='51'/>
+                        <attachment title='Response' source='af4c4395-4985-4f50-902c-acfe3884b33b-attachment.json' type='application/json' size='91'/>
+                    </attachments>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1524904199996' status='broken' stop='1524904290022'>
+            <name>I enter firtname and lastname &lt;fname> &lt;lname> on the page</name>
+            <title>I enter firtname and lastname &lt;fname> &lt;lname> on the page</title>
+            <labels>
+                <label name='feature' value='Performing a signup'/>
+                <label name='story' value='Perform a signup'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"browserName":"chrome","maxInstances":"1"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/features/test.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>function timed out after 90000 milliseconds</message>
+                <stack-trace>Error: function timed out after 90000 milliseconds
+                    at Timeout.&lt;anonymous> (/Users/saxenan3/myprojects/uiAutomation/mytest_project/node_modules/wdio-cucumber-framework/node_modules/cucumber/lib/user_code_runner.js:91:22)
+                    at ontimeout (timers.js:365:14)
+                    at tryOnTimeout (timers.js:237:5)
+                    at Timer.listOnTimeout (timers.js:207:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1524904290024' status='pending' stop='1524904290026'>
+            <name>I click signup</name>
+            <title>I click signup</title>
+            <labels>
+                <label name='feature' value='Performing a signup'/>
+                <label name='story' value='Perform a signup'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"browserName":"chrome","maxInstances":"1"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/features/test.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1524904290029' status='pending' stop='1524904290030'>
+            <name>I should get to the landing page</name>
+            <title>I should get to the landing page</title>
+            <labels>
+                <label name='feature' value='Performing a signup'/>
+                <label name='story' value='Perform a signup'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"browserName":"chrome","maxInstances":"1"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/features/test.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

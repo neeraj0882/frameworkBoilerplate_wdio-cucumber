@@ -1,0 +1,124 @@
+'use strict';
+
+var _regeneratorRuntime = require('babel-runtime/regenerator')['default'];
+
+var _Object$assign = require('babel-runtime/core-js/object/assign')['default'];
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var commands = {},
+    helpers = {},
+    extensions = {};
+
+commands.pressKeyCode = function callee$0$0(keycode) {
+  var metastate = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.uiautomator2.jwproxy.command('/appium/device/press_keycode', 'POST', { keycode: keycode, metastate: metastate }));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.longPressKeyCode = function callee$0$0(keycode) {
+  var metastate = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.uiautomator2.jwproxy.command('/appium/device/long_press_keycode', 'POST', { keycode: keycode, metastate: metastate }));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.doSwipe = function callee$0$0(swipeOpts) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.uiautomator2.jwproxy.command('/touch/perform', 'POST', swipeOpts));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.doDrag = function callee$0$0(dragOpts) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.uiautomator2.jwproxy.command('/touch/drag', 'POST', dragOpts));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.getOrientation = function callee$0$0() {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.uiautomator2.jwproxy.command('/orientation', 'GET', {}));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.setOrientation = function callee$0$0(orientation) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        orientation = orientation.toUpperCase();
+        context$1$0.next = 3;
+        return _regeneratorRuntime.awrap(this.uiautomator2.jwproxy.command('/orientation', 'POST', { orientation: orientation }));
+
+      case 3:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 4:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+_Object$assign(extensions, commands, helpers);
+exports.commands = commands;
+exports.helpers = helpers;
+exports['default'] = extensions;
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9jb21tYW5kcy9hY3Rpb25zLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFFQSxJQUFJLFFBQVEsR0FBRyxFQUFFO0lBQUUsT0FBTyxHQUFHLEVBQUU7SUFBRSxVQUFVLEdBQUcsRUFBRSxDQUFDOztBQUVqRCxRQUFRLENBQUMsWUFBWSxHQUFHLG9CQUFnQixPQUFPO01BQUUsU0FBUyx5REFBRyxJQUFJOzs7Ozt5Q0FDbEQsSUFBSSxDQUFDLFlBQVksQ0FBQyxPQUFPLENBQUMsT0FBTyxDQUFDLDhCQUE4QixFQUFFLE1BQU0sRUFBRSxFQUFDLE9BQU8sRUFBUCxPQUFPLEVBQUUsU0FBUyxFQUFULFNBQVMsRUFBQyxDQUFDOzs7Ozs7Ozs7O0NBQzdHLENBQUM7O0FBRUYsUUFBUSxDQUFDLGdCQUFnQixHQUFHLG9CQUFnQixPQUFPO01BQUUsU0FBUyx5REFBRyxJQUFJOzs7Ozt5Q0FDdEQsSUFBSSxDQUFDLFlBQVksQ0FBQyxPQUFPLENBQUMsT0FBTyxDQUFDLG1DQUFtQyxFQUFFLE1BQU0sRUFBRSxFQUFDLE9BQU8sRUFBUCxPQUFPLEVBQUUsU0FBUyxFQUFULFNBQVMsRUFBQyxDQUFDOzs7Ozs7Ozs7O0NBQ2xILENBQUM7O0FBRUYsUUFBUSxDQUFDLE9BQU8sR0FBRyxvQkFBZ0IsU0FBUzs7Ozs7eUNBQzdCLElBQUksQ0FBQyxZQUFZLENBQUMsT0FBTyxDQUFDLE9BQU8sbUJBQW1CLE1BQU0sRUFBRSxTQUFTLENBQUM7Ozs7Ozs7Ozs7Q0FDcEYsQ0FBQzs7QUFFRixRQUFRLENBQUMsTUFBTSxHQUFHLG9CQUFnQixRQUFROzs7Ozt5Q0FDM0IsSUFBSSxDQUFDLFlBQVksQ0FBQyxPQUFPLENBQUMsT0FBTyxnQkFBZ0IsTUFBTSxFQUFFLFFBQVEsQ0FBQzs7Ozs7Ozs7OztDQUNoRixDQUFDOztBQUVGLFFBQVEsQ0FBQyxjQUFjLEdBQUc7Ozs7O3lDQUNYLElBQUksQ0FBQyxZQUFZLENBQUMsT0FBTyxDQUFDLE9BQU8saUJBQWlCLEtBQUssRUFBRSxFQUFFLENBQUM7Ozs7Ozs7Ozs7Q0FDMUUsQ0FBQzs7QUFFRixRQUFRLENBQUMsY0FBYyxHQUFHLG9CQUFnQixXQUFXOzs7O0FBQ25ELG1CQUFXLEdBQUcsV0FBVyxDQUFDLFdBQVcsRUFBRSxDQUFDOzt5Q0FDM0IsSUFBSSxDQUFDLFlBQVksQ0FBQyxPQUFPLENBQUMsT0FBTyxpQkFBaUIsTUFBTSxFQUFFLEVBQUMsV0FBVyxFQUFYLFdBQVcsRUFBQyxDQUFDOzs7Ozs7Ozs7O0NBQ3RGLENBQUM7O0FBRUYsZUFBYyxVQUFVLEVBQUUsUUFBUSxFQUFFLE9BQU8sQ0FBQyxDQUFDO1FBQ3BDLFFBQVEsR0FBUixRQUFRO1FBQUUsT0FBTyxHQUFQLE9BQU87cUJBQ1gsVUFBVSIsImZpbGUiOiJsaWIvY29tbWFuZHMvYWN0aW9ucy5qcyIsInNvdXJjZXNDb250ZW50IjpbIlxuXG5sZXQgY29tbWFuZHMgPSB7fSwgaGVscGVycyA9IHt9LCBleHRlbnNpb25zID0ge307XG5cbmNvbW1hbmRzLnByZXNzS2V5Q29kZSA9IGFzeW5jIGZ1bmN0aW9uIChrZXljb2RlLCBtZXRhc3RhdGUgPSBudWxsKSB7XG4gIHJldHVybiBhd2FpdCB0aGlzLnVpYXV0b21hdG9yMi5qd3Byb3h5LmNvbW1hbmQoJy9hcHBpdW0vZGV2aWNlL3ByZXNzX2tleWNvZGUnLCAnUE9TVCcsIHtrZXljb2RlLCBtZXRhc3RhdGV9KTtcbn07XG5cbmNvbW1hbmRzLmxvbmdQcmVzc0tleUNvZGUgPSBhc3luYyBmdW5jdGlvbiAoa2V5Y29kZSwgbWV0YXN0YXRlID0gbnVsbCkge1xuICByZXR1cm4gYXdhaXQgdGhpcy51aWF1dG9tYXRvcjIuandwcm94eS5jb21tYW5kKCcvYXBwaXVtL2RldmljZS9sb25nX3ByZXNzX2tleWNvZGUnLCAnUE9TVCcsIHtrZXljb2RlLCBtZXRhc3RhdGV9KTtcbn07XG5cbmNvbW1hbmRzLmRvU3dpcGUgPSBhc3luYyBmdW5jdGlvbiAoc3dpcGVPcHRzKSB7XG4gIHJldHVybiBhd2FpdCB0aGlzLnVpYXV0b21hdG9yMi5qd3Byb3h5LmNvbW1hbmQoYC90b3VjaC9wZXJmb3JtYCwgJ1BPU1QnLCBzd2lwZU9wdHMpO1xufTtcblxuY29tbWFuZHMuZG9EcmFnID0gYXN5bmMgZnVuY3Rpb24gKGRyYWdPcHRzKSB7XG4gIHJldHVybiBhd2FpdCB0aGlzLnVpYXV0b21hdG9yMi5qd3Byb3h5LmNvbW1hbmQoYC90b3VjaC9kcmFnYCwgJ1BPU1QnLCBkcmFnT3B0cyk7XG59O1xuXG5jb21tYW5kcy5nZXRPcmllbnRhdGlvbiA9IGFzeW5jIGZ1bmN0aW9uICgpIHtcbiAgcmV0dXJuIGF3YWl0IHRoaXMudWlhdXRvbWF0b3IyLmp3cHJveHkuY29tbWFuZChgL29yaWVudGF0aW9uYCwgJ0dFVCcsIHt9KTtcbn07XG5cbmNvbW1hbmRzLnNldE9yaWVudGF0aW9uID0gYXN5bmMgZnVuY3Rpb24gKG9yaWVudGF0aW9uKSB7XG4gIG9yaWVudGF0aW9uID0gb3JpZW50YXRpb24udG9VcHBlckNhc2UoKTtcbiAgcmV0dXJuIGF3YWl0IHRoaXMudWlhdXRvbWF0b3IyLmp3cHJveHkuY29tbWFuZChgL29yaWVudGF0aW9uYCwgJ1BPU1QnLCB7b3JpZW50YXRpb259KTtcbn07XG5cbk9iamVjdC5hc3NpZ24oZXh0ZW5zaW9ucywgY29tbWFuZHMsIGhlbHBlcnMpO1xuZXhwb3J0IHsgY29tbWFuZHMsIGhlbHBlcnMgfTtcbmV4cG9ydCBkZWZhdWx0IGV4dGVuc2lvbnM7XG4iXSwic291cmNlUm9vdCI6Ii4uLy4uLy4uIn0=

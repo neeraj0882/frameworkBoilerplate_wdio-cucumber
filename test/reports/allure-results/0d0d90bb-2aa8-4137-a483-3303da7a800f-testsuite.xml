@@ -1,0 +1,57 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1524892816697' stop='1524892827604'>
+    <name>Performing a signup Perform a signup</name>
+    <title>Performing a signup Perform a signup</title>
+    <test-cases>
+        <test-case start='1524892816701' status='passed' stop='1524892827594'>
+            <name>I launch the php travels signup page</name>
+            <title>I launch the php travels signup page</title>
+            <labels>
+                <label name='feature' value='Performing a signup'/>
+                <label name='story' value='Perform a signup'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"browserName":"chrome","maxInstances":"5"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/features/test.feature"]'/>
+            </parameters>
+            <steps>
+                <step start='1524892816707' status='passed' stop='1524892822577'>
+                    <name>POST /wd/hub/session/96cb34b40c4bff45b2543c6ef9e949e8/url</name>
+                    <title>POST /wd/hub/session/96cb34b40c4bff45b2543c6ef9e949e8/url</title>
+                    <attachments>
+                        <attachment title='Request' source='bb4adf58-c39e-4244-a58c-23f3db60eb6a-attachment.json' type='application/json' size='51'/>
+                        <attachment title='Response' source='c7ca7dfd-2a1f-4f2e-abeb-d9949bee556d-attachment.json' type='application/json' size='91'/>
+                    </attachments>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1524892827596' status='broken' stop='1524892827601'>
+            <name>I enter firtname and lastname &lt;fname> &lt;lname> on the page</name>
+            <title>I enter firtname and lastname &lt;fname> &lt;lname> on the page</title>
+            <labels>
+                <label name='feature' value='Performing a signup'/>
+                <label name='story' value='Perform a signup'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"browserName":"chrome","maxInstances":"5"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/features/test.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>data.get is not a function</message>
+                <stack-trace>TypeError: data.get is not a function
+                    at World.&lt;anonymous> (/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/stepDefinitions/when.js:7:25)
+                    at Promise.F (/Users/saxenan3/myprojects/uiAutomation/mytest_project/node_modules/core-js/library/modules/_export.js:36:28)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

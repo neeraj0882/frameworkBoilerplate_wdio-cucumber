@@ -1,0 +1,575 @@
+'use strict';
+
+var _regeneratorRuntime = require('babel-runtime/regenerator')['default'];
+
+var _Object$assign = require('babel-runtime/core-js/object/assign')['default'];
+
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _androidHelpers = require('../android-helpers');
+
+var _androidHelpers2 = _interopRequireDefault(_androidHelpers);
+
+var _asyncbox = require('asyncbox');
+
+var _logger = require('../logger');
+
+var _logger2 = _interopRequireDefault(_logger);
+
+var commands = {},
+    helpers = {},
+    extensions = {};
+
+commands.getAttribute = function callee$0$0(attribute, elementId) {
+  var p;
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        p = { attribute: attribute, elementId: elementId };
+        context$1$0.next = 3;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("element:getAttribute", p));
+
+      case 3:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 4:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.getName = function callee$0$0(elementId) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.getAttribute("className", elementId));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.elementDisplayed = function callee$0$0(elementId) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.getAttribute("displayed", elementId));
+
+      case 2:
+        context$1$0.t0 = context$1$0.sent;
+        return context$1$0.abrupt('return', context$1$0.t0 === 'true');
+
+      case 4:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.elementEnabled = function callee$0$0(elementId) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.getAttribute("enabled", elementId));
+
+      case 2:
+        context$1$0.t0 = context$1$0.sent;
+        return context$1$0.abrupt('return', context$1$0.t0 === 'true');
+
+      case 4:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.elementSelected = function callee$0$0(elementId) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.getAttribute("selected", elementId));
+
+      case 2:
+        context$1$0.t0 = context$1$0.sent;
+        return context$1$0.abrupt('return', context$1$0.t0 === 'true');
+
+      case 4:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+helpers.setElementValue = function callee$0$0(keys, elementId) {
+  var replace = arguments.length <= 2 || arguments[2] === undefined ? false : arguments[2];
+  var text, params;
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        text = keys;
+
+        if (keys instanceof Array) {
+          text = keys.join("");
+        }
+
+        params = {
+          elementId: elementId,
+          text: text,
+          replace: replace,
+          unicodeKeyboard: this.opts.unicodeKeyboard
+        };
+        return context$1$0.abrupt('return', this.doSetElementValue(params));
+
+      case 4:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+/**
+ * Reason for isolating doSetElementValue from setElementValue is for reusing setElementValue
+ * across android-drivers (like appium-uiautomator2-driver) and to avoid code duplication.
+ * Other android-drivers (like appium-uiautomator2-driver) need to override doSetElementValue
+ * to facilitate setElementValue.
+ */
+helpers.doSetElementValue = function callee$0$0(params) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("element:setText", params));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.setValue = function callee$0$0(keys, elementId) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.setElementValue(keys, elementId, false));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.replaceValue = function callee$0$0(keys, elementId) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.setElementValue(keys, elementId, true));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.setValueImmediate = function callee$0$0(keys, elementId) {
+  var text;
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        text = keys;
+
+        if (keys instanceof Array) {
+          text = keys.join("");
+        }
+
+        // first, make sure we are focused on the element
+        context$1$0.next = 4;
+        return _regeneratorRuntime.awrap(this.click(elementId));
+
+      case 4:
+        context$1$0.next = 6;
+        return _regeneratorRuntime.awrap(this.adb.inputText(text));
+
+      case 6:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.getText = function callee$0$0(elementId) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("element:getText", { elementId: elementId }));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.clear = function callee$0$0(elementId) {
+  var text, length;
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    var _this = this;
+
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.getText(elementId));
+
+      case 2:
+        context$1$0.t0 = context$1$0.sent;
+
+        if (context$1$0.t0) {
+          context$1$0.next = 5;
+          break;
+        }
+
+        context$1$0.t0 = '';
+
+      case 5:
+        text = context$1$0.t0;
+        length = text.length;
+
+        if (length === 0) {
+          // if length is zero there are two possibilities:
+          //   1. there is nothing in the text field
+          //   2. it is a password field
+          // since there is little overhead to the adb call, delete 100 elements
+          // if we get zero, just in case it is #2
+          length = 100;
+        }
+        context$1$0.next = 10;
+        return _regeneratorRuntime.awrap(this.click(elementId));
+
+      case 10:
+        _logger2['default'].debug('Sending up to ' + length + ' clear characters to device');
+        context$1$0.next = 13;
+        return _regeneratorRuntime.awrap((0, _asyncbox.retryInterval)(5, 500, function callee$1$0() {
+          var remainingLength, lengthToSend;
+          return _regeneratorRuntime.async(function callee$1$0$(context$2$0) {
+            while (1) switch (context$2$0.prev = context$2$0.next) {
+              case 0:
+                remainingLength = length;
+
+              case 1:
+                if (!(remainingLength > 0)) {
+                  context$2$0.next = 9;
+                  break;
+                }
+
+                lengthToSend = remainingLength < 50 ? remainingLength : 50;
+
+                _logger2['default'].debug('Sending ' + lengthToSend + ' clear characters to device');
+                context$2$0.next = 6;
+                return _regeneratorRuntime.awrap(this.adb.clearTextField(lengthToSend));
+
+              case 6:
+                remainingLength -= lengthToSend;
+                context$2$0.next = 1;
+                break;
+
+              case 9:
+              case 'end':
+                return context$2$0.stop();
+            }
+          }, null, _this);
+        }));
+
+      case 13:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 14:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.click = function callee$0$0(elementId) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("element:click", { elementId: elementId }));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.getLocation = function callee$0$0(elementId) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("element:getLocation", { elementId: elementId }));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.getLocationInView = function callee$0$0(elementId) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.getLocation(elementId));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.getSize = function callee$0$0(elementId) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("element:getSize", { elementId: elementId }));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.getElementRect = function callee$0$0(elementId) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("element:getRect", { elementId: elementId }));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.touchLongClick = function callee$0$0(elementId, x, y, duration) {
+  var params;
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        params = { elementId: elementId, x: x, y: y, duration: duration };
+
+        _androidHelpers2['default'].removeNullProperties(params);
+        context$1$0.next = 4;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("element:touchLongClick", params));
+
+      case 4:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 5:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.touchDown = function callee$0$0(elementId, x, y) {
+  var params;
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        params = { elementId: elementId, x: x, y: y };
+
+        _androidHelpers2['default'].removeNullProperties(params);
+        context$1$0.next = 4;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("element:touchDown", params));
+
+      case 4:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 5:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.touchUp = function callee$0$0(elementId, x, y) {
+  var params;
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        params = { elementId: elementId, x: x, y: y };
+
+        _androidHelpers2['default'].removeNullProperties(params);
+        context$1$0.next = 4;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("element:touchUp", params));
+
+      case 4:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 5:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.touchMove = function callee$0$0(elementId, x, y) {
+  var params;
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        params = { elementId: elementId, x: x, y: y };
+
+        _androidHelpers2['default'].removeNullProperties(params);
+        context$1$0.next = 4;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("element:touchMove", params));
+
+      case 4:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 5:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.complexTap = function callee$0$0(tapCount, touchCount, duration, x, y) {
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("click", { x: x, y: y }));
+
+      case 2:
+        return context$1$0.abrupt('return', context$1$0.sent);
+
+      case 3:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+commands.tap = function callee$0$0(elementId) {
+  var x = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
+  var y = arguments.length <= 2 || arguments[2] === undefined ? 0 : arguments[2];
+  var count = arguments.length <= 3 || arguments[3] === undefined ? 1 : arguments[3];
+  var i;
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        i = 0;
+
+      case 1:
+        if (!(i < count)) {
+          context$1$0.next = 17;
+          break;
+        }
+
+        if (!elementId) {
+          context$1$0.next = 12;
+          break;
+        }
+
+        if (!(x !== 0 || y !== 0)) {
+          context$1$0.next = 8;
+          break;
+        }
+
+        context$1$0.next = 6;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("element:click", { elementId: elementId, x: x, y: y }));
+
+      case 6:
+        context$1$0.next = 10;
+        break;
+
+      case 8:
+        context$1$0.next = 10;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("element:click", { elementId: elementId }));
+
+      case 10:
+        context$1$0.next = 14;
+        break;
+
+      case 12:
+        context$1$0.next = 14;
+        return _regeneratorRuntime.awrap(this.bootstrap.sendAction("click", { x: x, y: y }));
+
+      case 14:
+        i++;
+        context$1$0.next = 1;
+        break;
+
+      case 17:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+
+_Object$assign(extensions, commands, helpers);
+exports.commands = commands;
+exports.helpers = helpers;
+exports['default'] = extensions;
+
+// then send through adb
+
+// we are either tapping on the default location of the element
+// or an offset from the top left corner
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9jb21tYW5kcy9lbGVtZW50LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs4QkFBMkIsb0JBQW9COzs7O3dCQUNqQixVQUFVOztzQkFDckIsV0FBVzs7OztBQUc5QixJQUFJLFFBQVEsR0FBRyxFQUFFO0lBQUUsT0FBTyxHQUFHLEVBQUU7SUFBRSxVQUFVLEdBQUcsRUFBRSxDQUFDOztBQUVqRCxRQUFRLENBQUMsWUFBWSxHQUFHLG9CQUFnQixTQUFTLEVBQUUsU0FBUztNQUN0RCxDQUFDOzs7O0FBQUQsU0FBQyxHQUFHLEVBQUMsU0FBUyxFQUFULFNBQVMsRUFBRSxTQUFTLEVBQVQsU0FBUyxFQUFDOzt5Q0FDakIsSUFBSSxDQUFDLFNBQVMsQ0FBQyxVQUFVLENBQUMsc0JBQXNCLEVBQUUsQ0FBQyxDQUFDOzs7Ozs7Ozs7O0NBQ2xFLENBQUM7O0FBRUYsUUFBUSxDQUFDLE9BQU8sR0FBRyxvQkFBZ0IsU0FBUzs7Ozs7eUNBQzdCLElBQUksQ0FBQyxZQUFZLENBQUMsV0FBVyxFQUFFLFNBQVMsQ0FBQzs7Ozs7Ozs7OztDQUN2RCxDQUFDOztBQUVGLFFBQVEsQ0FBQyxnQkFBZ0IsR0FBRyxvQkFBZ0IsU0FBUzs7Ozs7eUNBQ3RDLElBQUksQ0FBQyxZQUFZLENBQUMsV0FBVyxFQUFFLFNBQVMsQ0FBQzs7OzsrREFBSyxNQUFNOzs7Ozs7O0NBQ2xFLENBQUM7O0FBRUYsUUFBUSxDQUFDLGNBQWMsR0FBRyxvQkFBZ0IsU0FBUzs7Ozs7eUNBQ3BDLElBQUksQ0FBQyxZQUFZLENBQUMsU0FBUyxFQUFFLFNBQVMsQ0FBQzs7OzsrREFBSyxNQUFNOzs7Ozs7O0NBQ2hFLENBQUM7O0FBRUYsUUFBUSxDQUFDLGVBQWUsR0FBRyxvQkFBZ0IsU0FBUzs7Ozs7eUNBQ3JDLElBQUksQ0FBQyxZQUFZLENBQUMsVUFBVSxFQUFFLFNBQVMsQ0FBQzs7OzsrREFBSyxNQUFNOzs7Ozs7O0NBQ2pFLENBQUM7O0FBRUYsT0FBTyxDQUFDLGVBQWUsR0FB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cG9ydCBhbmRyb2lkSGVscGVycyBmcm9tICcuLi9hbmRyb2lkLWhlbHBlcnMnO1xuaW1wb3J0IHsgcmV0cnlJbnRlcnZhbCB9IGZyb20gJ2FzeW5jYm94JztcbmltcG9ydCBsb2dnZXIgZnJvbSAnLi4vbG9nZ2VyJztcblxuXG5sZXQgY29tbWFuZHMgPSB7fSwgaGVscGVycyA9IHt9LCBleHRlbnNpb25zID0ge307XG5cbmNvbW1hbmRzLmdldEF0dHJpYnV0ZSA9IGFzeW5jIGZ1bmN0aW9uIChhdHRyaWJ1dGUsIGVsZW1lbnRJZCkge1xuICBsZXQgcCA9IHthdHRyaWJ1dGUsIGVsZW1lbnRJZH07XG4gIHJldHVybiBhd2FpdCB0aGlzLmJvb3RzdHJhcC5zZW5kQWN0aW9uKFwiZWxlbWVudDpnZXRBdHRyaWJ1dGVcIiwgcCk7XG59O1xuXG5jb21tYW5kcy5nZXROYW1lID0gYXN5bmMgZnVuY3Rpb24gKGVsZW1lbnRJZCkge1xuICByZXR1cm4gYXdhaXQgdGhpcy5nZXRBdHRyaWJ1dGUoXCJjbGFzc05hbWVcIiwgZWxlbWVudElkKTtcbn07XG5cbmNvbW1hbmRzLmVsZW1lbnREaXNwbGF5ZWQgPSBhc3luYyBmdW5jdGlvbiAoZWxlbWVudElkKSB7XG4gIHJldHVybiBhd2FpdCB0aGlzLmdldEF0dHJpYnV0ZShcImRpc3BsYXllZFwiLCBlbGVtZW50SWQpID09PSAndHJ1ZSc7XG59O1xuXG5jb21tYW5kcy5lbGVtZW50RW5hYmxlZCA9IGFzeW5jIGZ1bmN0aW9uIChlbGVtZW50SWQpIHtcbiAgcmV0dXJuIGF3YWl0IHRoaXMuZ2V0QXR0cmlidXRlKFwiZW5hYmxlZFwiLCBlbGVtZW50SWQpID09PSAndHJ1ZSc7XG59O1xuXG5jb21tYW5kcy5lbGVtZW50U2VsZWN0ZWQgPSBhc3luYyBmdW5jdGlvbiAoZWxlbWVudElkKSB7XG4gIHJldHVybiBhd2FpdCB0aGlzLmdldEF0dHJpYnV0ZShcInNlbGVjdGVkXCIsIGVsZW1lbnRJZCkgPT09ICd0cnVlJztcbn07XG5cbmhlbHBlcnMuc2V0RWxlbWVudFZhbHVlID0gYXN5bmMgZnVuY3Rpb24gKGtleXMsIGVsZW1lbnRJZCwgcmVwbGFjZSA9IGZhbHNlKSB7XG4gIGxldCB0ZXh0ID0ga2V5cztcbiAgaWYgKGtleXMgaW5zdGFuY2VvZiBBcnJheSkge1xuICAgIHRleHQgPSBrZXlzLmpvaW4oXCJcIik7XG4gIH1cblxuICBsZXQgcGFyYW1zID0ge1xuICAgIGVsZW1lbnRJZCxcbiAgICB0ZXh0LFxuICAgIHJlcGxhY2UsXG4gICAgdW5pY29kZUtleWJvYXJkOiB0aGlzLm9wdHMudW5pY29kZUtleWJvYXJkXG4gIH07XG5cbiAgcmV0dXJuIHRoaXMuZG9TZXRFbGVtZW50VmFsdWUocGFyYW1zKTtcbn07XG5cbi8qKlxuICogUmVhc29uIGZvciBpc29sYXRpbmcgZG9TZXRFbGVtZW50VmFsdWUgZnJvbSBzZXRFbGVtZW50VmFsdWUgaXMgZm9yIHJldXNpbmcgc2V0RWxlbWVudFZhbHVlXG4gKiBhY3Jvc3MgYW5kcm9pZC1kcml2ZXJzIChsaWtlIGFwcGl1bS11aWF1dG9tYXRvcjItZHJpdmVyKSBhbmQgdG8gYXZvaWQgY29kZSBkdXBsaWNhdGlvbi5cbiAqIE90aGVyIGFuZHJvaWQtZHJpdmVycyAobGlrZSBhcHBpdW0tdWlhdXRvbWF0b3IyLWRyaXZlcikgbmVlZCB0byBvdmVycmlkZSBkb1NldEVsZW1lbnRWYWx1ZVxuICogdG8gZmFjaWxpdGF0ZSBzZXRFbGVtZW50VmFsdWUuXG4gKi9cbmhlbHBlcnMuZG9TZXRFbGVtZW50VmFsdWUgPSBhc3luYyBmdW5jdGlvbiAocGFyYW1zKSB7XG4gIHJldHVybiBhd2FpdCB0aGlzLmJvb3RzdHJhcC5zZW5kQWN0aW9uKFwiZWxlbWVudDpzZXRUZXh0XCIsIHBhcmFtcyk7XG59O1xuXG5jb21tYW5kcy5zZXRWYWx1ZSA9IGFzeW5jIGZ1bmN0aW9uIChrZXlzLCBlbGVtZW50SWQpIHtcbiAgcmV0dXJuIGF3YWl0IHRoaXMuc2V0RWxlbWVudFZhbHVlKGtleXMsIGVsZW1lbnRJZCwgZmFsc2UpO1xufTtcblxuY29tbWFuZHMucmVwbGFjZVZhbHVlID0gYXN5bmMgZnVuY3Rpb24gKGtleXMsIGVsZW1lbnRJZCkge1xuICByZXR1cm4gYXdhaXQgdGhpcy5zZXRFbGVtZW50VmFsdWUoa2V5cywgZWxlbWVudElkLCB0cnVlKTtcbn07XG5cbmNvbW1hbmRzLnNldFZhbHVlSW1tZWRpYXRlID0gYXN5bmMgZnVuY3Rpb24gKGtleXMsIGVsZW1lbnRJZCkge1xuICBsZXQgdGV4dCA9IGtleXM7XG4gIGlmIChrZXlzIGluc3RhbmNlb2YgQXJyYXkpIHtcbiAgICB0ZXh0ID0ga2V5cy5qb2luKFwiXCIpO1xuICB9XG5cbiAgLy8gZmlyc3QsIG1ha2Ugc3VyZSB3ZSBhcmUgZm9jdXNlZCBvbiB0aGUgZWxlbWVudFxuICBhd2FpdCB0aGlzLmNsaWNrKGVsZW1lbnRJZCk7XG5cbiAgLy8gdGhlbiBzZW5kIHRocm91Z2ggYWRiXG4gIGF3YWl0IHRoaXMuYWRiLmlucHV0VGV4dCh0ZXh0KTtcbn07XG5cbmNvbW1hbmRzLmdldFRleHQgPSBhc3luYyBmdW5jdGlvbiAoZWxlbWVudElkKSB7XG4gIHJldHVybiBhd2FpdCB0aGlzLmJvb3RzdHJhcC5zZW5kQWN0aW9uKFwiZWxlbWVudDpnZXRUZXh0XCIsIHtlbGVtZW50SWR9KTtcbn07XG5cbmNvbW1hbmRzLmNsZWFyID0gYXN5bmMgZnVuY3Rpb24gKGVsZW1lbnRJZCkge1xuICBsZXQgdGV4dCA9IChhd2FpdCB0aGlzLmdldFRleHQoZWxlbWVudElkKSkgfHwgJyc7XG4gIGxldCBsZW5ndGggPSB0ZXh0Lmxlbmd0aDtcbiAgaWYgKGxlbmd0aCA9PT0gMCkge1xuICAgIC8vIGlmIGxlbmd0aCBpcyB6ZXJvIHRoZXJlIGFyZSB0d28gcG9zc2liaWxpdGllczpcbiAgICAvLyAgIDEuIHRoZXJlIGlzIG5vdGhpbmcgaW4gdGhlIHRleHQgZmllbGRcbiAgICAvLyAgIDIuIGl0IGlzIGEgcGFzc3dvcmQgZmllbGRcbiAgICAvLyBzaW5jZSB0aGVyZSBpcyBsaXR0bGUgb3ZlcmhlYWQgdG8gdGhlIGFkYiBjYWxsLCBkZWxldGUgMTAwIGVsZW1lbnRzXG4gICAgLy8gaWYgd2UgZ2V0IHplcm8sIGp1c3QgaW4gY2FzZSBpdCBpcyAjMlxuICAgIGxlbmd0aCA9IDEwMDtcbiAgfVxuICBhd2FpdCB0aGlzLmNsaWNrKGVsZW1lbnRJZCk7XG4gIGxvZ2dlci5kZWJ1ZyhgU2VuZGluZyB1cCB0byAke2xlbmd0aH0gY2xlYXIgY2hhcmFjdGVycyB0byBkZXZpY2VgKTtcbiAgcmV0dXJuIGF3YWl0IHJldHJ5SW50ZXJ2YWwoNSwgNTAwLCBhc3luYyAoKSA9PiB7XG4gICAgbGV0IHJlbWFpbmluZ0xlbmd0aCA9IGxlbmd0aDtcbiAgICB3aGlsZSAocmVtYWluaW5nTGVuZ3RoID4gMCkge1xuICAgICAgbGV0IGxlbmd0aFRvU2VuZCA9IHJlbWFpbmluZ0xlbmd0aCA8IDUwID8gcmVtYWluaW5nTGVuZ3RoIDogNTA7XG4gICAgICBsb2dnZXIuZGVidWcoYFNlbmRpbmcgJHtsZW5ndGhUb1NlbmR9IGNsZWFyIGNoYXJhY3RlcnMgdG8gZGV2aWNlYCk7XG4gICAgICBhd2FpdCB0aGlzLmFkYi5jbGVhclRleHRGaWVsZChsZW5ndGhUb1NlbmQpO1xuICAgICAgcmVtYWluaW5nTGVuZ3RoIC09IGxlbmd0aFRvU2VuZDtcbiAgICB9XG4gIH0pO1xufTtcblxuY29tbWFuZHMuY2xpY2sgPSBhc3luYyBmdW5jdGlvbiAoZWxlbWVudElkKSB7XG4gIHJldHVybiBhd2FpdCB0aGlzLmJvb3RzdHJhcC5zZW5kQWN0aW9uKFwiZWxlbWVudDpjbGlja1wiLCB7ZWxlbWVudElkfSk7XG59O1xuXG5jb21tYW5kcy5nZXRMb2NhdGlvbiA9IGFzeW5jIGZ1bmN0aW9uIChlbGVtZW50SWQpIHtcbiAgcmV0dXJuIGF3YWl0IHRoaXMuYm9vdHN0cmFwLnNlbmRBY3Rpb24oXCJlbGVtZW50OmdldExvY2F0aW9uXCIsIHtlbGVtZW50SWR9KTtcbn07XG5cbmNvbW1hbmRzLmdldExvY2F0aW9uSW5WaWV3ID0gYXN5bmMgZnVuY3Rpb24gKGVsZW1lbnRJZCkge1xuICByZXR1cm4gYXdhaXQgdGhpcy5nZXRMb2NhdGlvbihlbGVtZW50SWQpO1xufTtcblxuY29tbWFuZHMuZ2V0U2l6ZSA9IGFzeW5jIGZ1bmN0aW9uIChlbGVtZW50SWQpIHtcbiAgcmV0dXJuIGF3YWl0IHRoaXMuYm9vdHN0cmFwLnNlbmRBY3Rpb24oXCJlbGVtZW50OmdldFNpemVcIiwge2VsZW1lbnRJZH0pO1xufTtcblxuY29tbWFuZHMuZ2V0RWxlbWVudFJlY3QgPSBhc3luYyBmdW5jdGlvbiAoZWxlbWVudElkKSB7XG4gIHJldHVybiBhd2FpdCB0aGlzLmJvb3RzdHJhcC5zZW5kQWN0aW9uKFwiZWxlbWVudDpnZXRSZWN0XCIsIHtlbGVtZW50SWR9KTtcbn07XG5cbmNvbW1hbmRzLnRvdWNoTG9uZ0NsaWNrID0gYXN5bmMgZnVuY3Rpb24gKGVsZW1lbnRJZCwgeCwgeSwgZHVyYXRpb24pIHtcbiAgbGV0IHBhcmFtcyA9IHtlbGVtZW50SWQsIHgsIHksIGR1cmF0aW9ufTtcbiAgYW5kcm9pZEhlbHBlcnMucmVtb3ZlTnVsbFByb3BlcnRpZXMocGFyYW1zKTtcbiAgcmV0dXJuIGF3YWl0IHRoaXMuYm9vdHN0cmFwLnNlbmRBY3Rpb24oXCJlbGVtZW50OnRvdWNoTG9uZ0NsaWNrXCIsIHBhcmFtcyk7XG59O1xuXG5jb21tYW5kcy50b3VjaERvd24gPSBhc3luYyBmdW5jdGlvbiAoZWxlbWVudElkLCB4LCB5KSB7XG4gIGxldCBwYXJhbXMgPSB7ZWxlbWVudElkLCB4LCB5fTtcbiAgYW5kcm9pZEhlbHBlcnMucmVtb3ZlTnVsbFByb3BlcnRpZXMocGFyYW1zKTtcbiAgcmV0dXJuIGF3YWl0IHRoaXMuYm9vdHN0cmFwLnNlbmRBY3Rpb24oXCJlbGVtZW50OnRvdWNoRG93blwiLCBwYXJhbXMpO1xufTtcblxuY29tbWFuZHMudG91Y2hVcCA9IGFzeW5jIGZ1bmN0aW9uIChlbGVtZW50SWQsIHgsIHkpIHtcbiAgbGV0IHBhcmFtcyA9IHtlbGVtZW50SWQsIHgsIHl9O1xuICBhbmRyb2lkSGVscGVycy5yZW1vdmVOdWxsUHJvcGVydGllcyhwYXJhbXMpO1xuICByZXR1cm4gYXdhaXQgdGhpcy5ib290c3RyYXAuc2VuZEFjdGlvbihcImVsZW1lbnQ6dG91Y2hVcFwiLCBwYXJhbXMpO1xufTtcblxuY29tbWFuZHMudG91Y2hNb3ZlID0gYXN5bmMgZnVuY3Rpb24gKGVsZW1lbnRJZCwgeCwgeSkge1xuICBsZXQgcGFyYW1zID0ge2VsZW1lbnRJZCwgeCwgeX07XG4gIGFuZHJvaWRIZWxwZXJzLnJlbW92ZU51bGxQcm9wZXJ0aWVzKHBhcmFtcyk7XG4gIHJldHVybiBhd2FpdCB0aGlzLmJvb3RzdHJhcC5zZW5kQWN0aW9uKFwiZWxlbWVudDp0b3VjaE1vdmVcIiwgcGFyYW1zKTtcbn07XG5cbmNvbW1hbmRzLmNvbXBsZXhUYXAgPSBhc3luYyBmdW5jdGlvbiAodGFwQ291bnQsIHRvdWNoQ291bnQsIGR1cmF0aW9uLCB4LCB5KSB7XG4gIHJldHVybiBhd2FpdCB0aGlzLmJvb3RzdHJhcC5zZW5kQWN0aW9uKFwiY2xpY2tcIiwge3gsIHl9KTtcbn07XG5cbmNvbW1hbmRzLnRhcCA9IGFzeW5jIGZ1bmN0aW9uIChlbGVtZW50SWQsIHggPSAwLCB5ID0gMCwgY291bnQgPSAxKSB7XG4gIGZvciAobGV0IGkgPSAwOyBpIDwgY291bnQ7IGkrKykge1xuICAgIGlmIChlbGVtZW50SWQpIHtcbiAgICAgIC8vIHdlIGFyZSBlaXRoZXIgdGFwcGluZyBvbiB0aGUgZGVmYXVsdCBsb2NhdGlvbiBvZiB0aGUgZWxlbWVudFxuICAgICAgLy8gb3IgYW4gb2Zmc2V0IGZyb20gdGhlIHRvcCBsZWZ0IGNvcm5lclxuICAgICAgaWYgKHggIT09IDAgfHwgeSAhPT0gMCkge1xuICAgICAgICBhd2FpdCB0aGlzLmJvb3RzdHJhcC5zZW5kQWN0aW9uKFwiZWxlbWVudDpjbGlja1wiLCB7ZWxlbWVudElkLCB4LCB5fSk7XG4gICAgICB9IGVsc2Uge1xuICAgICAgICBhd2FpdCB0aGlzLmJvb3RzdHJhcC5zZW5kQWN0aW9uKFwiZWxlbWVudDpjbGlja1wiLCB7ZWxlbWVudElkfSk7XG4gICAgICB9XG4gICAgfSBlbHNlIHtcbiAgICAgIGF3YWl0IHRoaXMuYm9vdHN0cmFwLnNlbmRBY3Rpb24oXCJjbGlja1wiLCB7eCwgeX0pO1xuICAgIH1cbiAgfVxufTtcblxuT2JqZWN0LmFzc2lnbihleHRlbnNpb25zLCBjb21tYW5kcywgaGVscGVycyk7XG5leHBvcnQgeyBjb21tYW5kcywgaGVscGVycyB9O1xuZXhwb3J0IGRlZmF1bHQgZXh0ZW5zaW9ucztcbiJdLCJzb3VyY2VSb290IjoiLi4vLi4vLi4ifQ==

@@ -1,0 +1,77 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1524970384615' stop='1524970384644'>
+    <name>Performing a signup SignUp page</name>
+    <title>Performing a signup SignUp page</title>
+    <test-cases>
+        <test-case start='1524970384615' status='passed' stop='1524970384616'>
+            <name>I am on the landing page</name>
+            <title>I am on the landing page</title>
+            <labels>
+                <label name='feature' value='Performing a signup'/>
+                <label name='story' value='SignUp page'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"browserName":"chrome","maxInstances":"1"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/features/test.feature"]'/>
+            </parameters>
+            <steps>
+                <step start='1524970384615' status='passed' stop='1524970384616'>
+                    <name>POST /wd/hub/session/9c4c4f61357e5f8e2e6aff1fc6048c23/element</name>
+                    <title>POST /wd/hub/session/9c4c4f61357e5f8e2e6aff1fc6048c23/element</title>
+                    <attachments>
+                        <attachment title='Request' source='e06a731f-7d82-4ef2-a98e-c02a8dae53cb-attachment.json' type='application/json' size='91'/>
+                        <attachment title='Response' source='12e7ea68-7794-4789-84d9-686bb676e47e-attachment.json' type='application/json' size='136'/>
+                    </attachments>
+                    <steps/>
+                </step>
+                <step start='1524970384616' status='passed' stop='1524970384616'>
+                    <name>GET /wd/hub/session/9c4c4f61357e5f8e2e6aff1fc6048c23/element/0.8139283613696646-1/text</name>
+                    <title>GET /wd/hub/session/9c4c4f61357e5f8e2e6aff1fc6048c23/element/0.8139283613696646-1/text</title>
+                    <attachments>
+                        <attachment title='Response' source='aafcd8a1-7494-4afa-93ae-0928e2fb2971-attachment.json' type='application/json' size='119'/>
+                    </attachments>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1524970384617' status='passed' stop='1524970384643'>
+            <name>the name displayed should be correct</name>
+            <title>the name displayed should be correct</title>
+            <labels>
+                <label name='feature' value='Performing a signup'/>
+                <label name='story' value='SignUp page'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"browserName":"chrome","maxInstances":"1"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/features/test.feature"]'/>
+            </parameters>
+            <steps>
+                <step start='1524970384617' status='passed' stop='1524970384622'>
+                    <name>POST /wd/hub/session/9c4c4f61357e5f8e2e6aff1fc6048c23/element</name>
+                    <title>POST /wd/hub/session/9c4c4f61357e5f8e2e6aff1fc6048c23/element</title>
+                    <attachments>
+                        <attachment title='Request' source='d5a92ee8-ab6e-475a-9361-f31061236958-attachment.json' type='application/json' size='91'/>
+                        <attachment title='Response' source='671ab616-3ec5-4baa-acf0-0c736748e88c-attachment.json' type='application/json' size='136'/>
+                    </attachments>
+                    <steps/>
+                </step>
+                <step start='1524970384627' status='passed' stop='1524970384637'>
+                    <name>GET /wd/hub/session/9c4c4f61357e5f8e2e6aff1fc6048c23/element/0.8139283613696646-1/text</name>
+                    <title>GET /wd/hub/session/9c4c4f61357e5f8e2e6aff1fc6048c23/element/0.8139283613696646-1/text</title>
+                    <attachments>
+                        <attachment title='Response' source='467119e8-cea2-483b-bb02-b5e707f10bfa-attachment.json' type='application/json' size='119'/>
+                    </attachments>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

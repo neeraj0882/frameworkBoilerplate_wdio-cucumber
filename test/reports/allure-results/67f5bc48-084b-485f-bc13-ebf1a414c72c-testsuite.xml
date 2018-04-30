@@ -1,0 +1,57 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1524891229971' stop='1524891233549'>
+    <name>Performing a signup Perform a signup</name>
+    <title>Performing a signup Perform a signup</title>
+    <test-cases>
+        <test-case start='1524891229974' status='broken' stop='1524891233549'>
+            <name>I launch the php travels signup page</name>
+            <title>I launch the php travels signup page</title>
+            <labels>
+                <label name='feature' value='Performing a signup'/>
+                <label name='story' value='Perform a signup'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"browserName":"chrome","maxInstances":"5"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/features/test.feature"]'/>
+            </parameters>
+            <steps>
+                <step start='1524891229979' status='passed' stop='1524891233530'>
+                    <name>POST /wd/hub/session/a3ead206-a9c3-4c96-a97e-90589bb82364/url</name>
+                    <title>POST /wd/hub/session/a3ead206-a9c3-4c96-a97e-90589bb82364/url</title>
+                    <attachments>
+                        <attachment title='Request' source='cbb691fb-80db-4acc-bb30-df2226c1bc77-attachment.json' type='application/json' size='51'/>
+                        <attachment title='Response' source='df581baf-2ecf-4335-acf3-f2bdc0689ea4-attachment.json' type='application/json' size='331072'/>
+                    </attachments>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <failure>
+                <message>unknown error: missing or invalid 'entry.level'</message>
+                <stack-trace>Error: An unknown server-side error occurred while processing the command.
+                    at Promise.F (node_modules/core-js/library/modules/_export.js:36:28)
+                    at url("http://www.phptravels.net/register") - at World.&lt;anonymous> (test/stepDefinitions/given.js:6:17)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1524891233549' status='pending' stop='1524891233549'>
+            <name>I enter firtname and lastname &lt;fname> &lt;lname> on the page</name>
+            <title>I enter firtname and lastname &lt;fname> &lt;lname> on the page</title>
+            <labels>
+                <label name='feature' value='Performing a signup'/>
+                <label name='story' value='Perform a signup'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"browserName":"chrome","maxInstances":"5"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/features/test.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

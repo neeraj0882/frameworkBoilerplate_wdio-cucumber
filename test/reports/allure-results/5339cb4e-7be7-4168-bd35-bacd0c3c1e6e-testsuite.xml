@@ -1,0 +1,47 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1524970202344' stop='1524970202345'>
+    <name>Performing a signup SignUp page</name>
+    <title>Performing a signup SignUp page</title>
+    <test-cases>
+        <test-case start='1524970202344' status='broken' stop='1524970202345'>
+            <name>I am on the landing page</name>
+            <title>I am on the landing page</title>
+            <labels>
+                <label name='feature' value='Performing a signup'/>
+                <label name='story' value='SignUp page'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"browserName":"chrome","maxInstances":"1"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/features/test.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>_landingPage2.default.getGreetingText is not a function</message>
+                <stack-trace>TypeError: _landingPage2.default.getGreetingText is not a function
+                    at World.&lt;anonymous> (/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/stepDefinitions/given.js:15:21)
+                    at Promise.F (/Users/saxenan3/myprojects/uiAutomation/mytest_project/node_modules/core-js/library/modules/_export.js:36:28)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1524970202345' status='pending' stop='1524970202345'>
+            <name>the name displayed should be correct</name>
+            <title>the name displayed should be correct</title>
+            <labels>
+                <label name='feature' value='Performing a signup'/>
+                <label name='story' value='SignUp page'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"browserName":"chrome","maxInstances":"1"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/saxenan3/myprojects/uiAutomation/mytest_project/test/features/test.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

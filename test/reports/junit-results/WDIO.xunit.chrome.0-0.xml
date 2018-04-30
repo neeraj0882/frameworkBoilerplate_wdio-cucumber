@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="performing_a_signup1" timestamp="2018-04-29T12:52:50" time="14.375" tests="0" failures="0" errors="0" skipped="0">
+    <properties>
+      <property name="specId" value="3997b146a9b25ae3214dfd3590895f7b"/>
+      <property name="suiteName" value="Performing a signup1"/>
+      <property name="capabilities" value="chrome"/>
+    </properties>
+  </testsuite>
+  <testsuite name="perform_a_signup3" timestamp="2018-04-29T12:52:50" time="14.298" tests="4" failures="0" errors="0" skipped="0">
+    <properties>
+      <property name="specId" value="3997b146a9b25ae3214dfd3590895f7b"/>
+      <property name="suiteName" value="Perform a signup3"/>
+      <property name="capabilities" value="chrome"/>
+    </properties>
+    <testcase classname="chrome.Perform a signup3" name="I launch the php travels signup page4" time="14.618"/>
+    <testcase classname="chrome.Perform a signup3" name="I enter firtname and lastname &lt;fname> &lt;lname> on the page5" time="7.141"/>
+    <testcase classname="chrome.Perform a signup3" name="I click signup8" time="5.491"/>
+    <testcase classname="chrome.Perform a signup3" name="I should get to the landing page9" time="0.409"/>
+  </testsuite>
+  <testsuite name="signup_page11" timestamp="2018-04-29T12:53:04" time="0.029" tests="2" failures="0" errors="0" skipped="0">
+    <properties>
+      <property name="specId" value="3997b146a9b25ae3214dfd3590895f7b"/>
+      <property name="suiteName" value="SignUp page11"/>
+      <property name="capabilities" value="chrome"/>
+    </properties>
+    <testcase classname="chrome.SignUp page11" name="I am on the landing page12" time="0.283"/>
+    <testcase classname="chrome.SignUp page11" name="the name displayed should be correct13" time="0.281"/>
+  </testsuite>
+</testsuites>
